@@ -1,2 +1,3 @@
 # Python-Practices
-First projects in Python3
+[SP]
+Primeros proyectos realizados en la Materia de "Diagramación Logica" en el IFTS 18
