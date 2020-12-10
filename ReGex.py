@@ -17,7 +17,7 @@ def decimals(price):
        print ("El valor ingresado es correcto.")
    else:
        print ("El valor ingresado es incorrecto.")
-price = float(input("Ingrese un precio: "))
+price = input("Ingrese un precio: ")
 decimals(price)
 
 #RegEx Cellphone in Bs As, Argentina
