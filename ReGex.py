@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash env python
 
 #RegEx Email function
 import re
@@ -22,7 +22,7 @@ decimals(price)
 
 #RegEx Cellphone in Bs As, Argentina
 def validateCel(cel):
-    if re.match(r"^[0-9]{2}+\-[0-9]{4}+\-[0-9]{4}$", cel):
+    if re.match(r"[1]{2}-[0-9]{4}-[0-9]{4}$", cel):
         print ("El Celular ingresado es correcto.")
     else:
         print ("El Celular ingresado es incorrecto.")
