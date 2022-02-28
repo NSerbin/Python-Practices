@@ -4,6 +4,7 @@ descuento dependiendo de un numero que se escoge al azar.
 * Si el numero escogido es menor que 74 el descuento es del 15% sobre el total de la compra
 * Si es mayor o igual a 74 el descuento es del 20%. 
 Obtener cuánto dinero se le descuenta."""
+
 import random
 
 numero = random.randint(0,100)
@@ -13,13 +14,11 @@ if numero < 74:
     desc = (venta * 0.15)
     total = venta - desc
     print (f"Usted tiene un 15% de descuento en su compra. Se le debitaran ${desc}")
-    print (f"El total de su factura es {total}")
-elif numero >= 74:
+else:
     desc = venta - (venta * 0.20)
     total = venta - desc
     print (f"Usted tiene un 20% de descuento en su compra. Se le debitaran ${desc}")
-    print (f"El total de su factura es {total}")
-
+print (f"El total de su factura es {total}")
 """ 2 - Calcular el numero de pulsaciones que debe tener una persona por cada 10 segundos 
 de ejercicio aerobico segun su genero. 
 * Si es femenino : pulsaciones = (220 - edad)/10

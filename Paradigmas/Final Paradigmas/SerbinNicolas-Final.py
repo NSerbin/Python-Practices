@@ -17,8 +17,7 @@ logging.basicConfig(
             # PROGRAMA INFORMANDO EL ERROR
 def email_verificator(mail):
     if re.match(r"[^@]+@[^@]+\.[^@]+", mail):
-        logging.info(f"Iniciando validación de cantidad de emails")
-        pass
+        logging.info("Iniciando validación de cantidad de emails")
     else:
         print("El archivo contiene mails inválidos.")
         logging.error("Mails contienen errores.")
@@ -29,8 +28,7 @@ def email_verificator(mail):
             # PROGRAMA INFORMANDO EL ERROR
 def validateDocuments(doc):
     if len(doc) >= 7 and len(doc) <= 8:
-        logging.info(f"Iniciando comprobación de cantidad de números en el Documento")
-        pass
+        logging.info("Iniciando comprobación de cantidad de números en el Documento")
     else:
         print("El archivo contiene Documentos inválidos.")
         logging.error("Documentos contienen errores.")
@@ -41,8 +39,7 @@ def validateDocuments(doc):
             # PROGRAMA INFORMANDO EL ERROR
 def validateDecimals(price):
     if re.match(r"^[0-9]+\.[0-9]{2}$", price):
-        logging.info(f"Iniciando comprobación de cantidad de Decimales")
-        pass
+        logging.info("Iniciando comprobación de cantidad de Decimales")
     else:
         print("El archivo contiene Precios inválidos.")
         logging.error("Precios contienen errores.")
@@ -53,7 +50,7 @@ def validateDecimals(price):
             # EN CASO DE ESTAR VACIOS, CORTA LA EJECUCION
             # DEL PROGRAMA INFORMANDO EL ERROR
 def validateEmptyFields(name, adress, begin, company):
-    logging.info(f"Iniciando comprobación de caracteres en los campos.")
+    logging.info("Iniciando comprobación de caracteres en los campos.")
     if re.match(r'^\Z', name) or re.match(r'^\Z', adress):
         print("El archivo contiene Campos Vacios")
         logging.error("Campos Vacios en el Archivo.")
@@ -62,21 +59,17 @@ def validateEmptyFields(name, adress, begin, company):
         print("El archivo contiene Campos Vacios")
         logging.error("Campos Vacios en el Archivo.")
         raise Exception ("El archivo contiene Campos Vacios")
-    else:
-        pass
 
             # FUNCION QUE VERIFICA SI HAY CAMPOS VACIOS EN 
             # FECHA DEL VIAJE, EN CASO DE ESTAR VACIOS,
             # CORTA LA EJECUCION DEL PROGRAMA INFORMANDO 
             # EL ERROR
 def validateEmptyFieldsTravels(begin):
-    logging.info(f"Iniciando comprobación de caracteres en los campos.")
+    logging.info("Iniciando comprobación de caracteres en los campos.")
     if re.match(r'^\Z', begin):
         print("El archivo contiene Campos Vacios")
         logging.error("Campos Vacios en el Archivo.")
         raise Exception ("El archivo contiene Campos Vacios")
-    else:
-        pass
 
 def menu():
     logging.info('Inicio del Script...')
@@ -118,11 +111,10 @@ def menu():
             logging.warning(f"El usuario ingresó {opcion} la cual es una opción inválida.")
 
 def ClientNameSearch():
-    logging.info(f"Iniciando la Búsqueda de Usuario por Nombre.")
+    logging.info("Iniciando la Búsqueda de Usuario por Nombre.")
     CLIENTS = input("Ingrese el nombre del Registro de Clientes: ") + ".csv"
     logging.info(f"El usuario ingresó {CLIENTS} como nombre del Archivo de Clientes.")
 
-            # SI ARCHIVO CLIENTS EXISTE, INICIA LA APERTURA DEL MISMO
     try:
         with open(CLIENTS, 'r', newline='') as file:
             read_csv = csv.DictReader(file, delimiter=',')
@@ -144,7 +136,7 @@ def ClientNameSearch():
                 logging.info(f"Comprobación de email en {CLIENTS} Exitosa.")
                 validateEmptyFields (name, adress, begin, company)
                 logging.info(f"Comprobación de Nombre, Dirección, Fecha de Alta y Nombre de Empresa en {CLIENTS} Exitosa.")
-            
+
                 if clientName in line[clientList[0]]:
                     print("==================================================")
                     print(f" Nombre: {line[clientList[0]]} \n Dirección: {line[clientList[1]]} \n Documento: {line[clientList[2]]} \n Fecha de Alta: {line[clientList[3]]} \n Correo Electrónico: {line[clientList[4]]} \n Empresa: {line[clientList[5]]}")
@@ -154,11 +146,10 @@ def ClientNameSearch():
         logging.error("El usuario ingresó {CLIENTS} como nombre de Archivo de Clientes, el cual NO EXISTE.")
 
 def ClientQtySearch():
-    logging.info(f"Iniciando la Búsqueda del Total de Usuarios por Empresa.")
+    logging.info("Iniciando la Búsqueda del Total de Usuarios por Empresa.")
     CLIENTS = input("Ingrese el nombre del Registro de Clientes: ") + ".csv"
     logging.info(f"El usuario ingresó {CLIENTS} como nombre del Archivo de Clientes.")
 
-            # SI ARCHIVO CLIENTS EXISTE, INICIA LA APERTURA DEL MISMO
     try:
         with open(CLIENTS, 'r', newline='') as file:
             read_csv = csv.DictReader(file, delimiter=',')
@@ -186,7 +177,7 @@ def ClientQtySearch():
                 if company in line[qtyList[5]]:
                     count += 1
                     companyName = line[qtyList[5]]
-                       
+
             print("=================================================================")
             print(f" Empresa: {companyName} \n Tiene {count} Usuarios")
             logging.info(f"Empresa {company} como nombre de empresa a buscar.")
@@ -203,14 +194,12 @@ def ClientQtySearch():
         logging.error("El usuario ingresó {CLIENTS} como nombre de Archivo de Clientes, el cual NO EXISTE.")
 
 def DebtQtySearch():
-    logging.info(f"Iniciando la Búsqueda del Monto por Empresa.")
+    logging.info("Iniciando la Búsqueda del Monto por Empresa.")
     CLIENTS = input("Ingrese el nombre del Registro de Clientes: ") + ".csv"
     logging.info(f"El usuario ingresó {CLIENTS} como nombre del Archivo de Clientes.")
     TRAVELS = input("Ingrese el nombre del Registro de Viajes: ") + ".csv"
     logging.info(f"El usuario ingresó {TRAVELS} como nombre del Archivo de Viajes.")
 
-            # SI ARCHIVOS CLIENTS y TRAVELS EXISTEN, INICIA LA APERTURA DE  
-            # LOS MISMOS
     try:
         with open(CLIENTS, 'r', newline='') as fileOne, open(TRAVELS, 'r', newline='') as fileTwo:
             read_csv_one = csv.DictReader(fileOne, delimiter=',')
@@ -242,7 +231,7 @@ def DebtQtySearch():
                     documentList.append(line[companyList[2]])
                     companyName = line[companyList[5]]
                     logging.info(f"Empresa {company_input} encontrada como {companyName} en {CLIENTS}")
-                
+
             # INICIO BUCLE BUSQUEDA DE DOCUMENTOS DE LOS USUARIOS DE LA 
             # EMPRESA EN ARCHIVO TRAVELS
             for line in read_csv_two:
@@ -263,14 +252,15 @@ def DebtQtySearch():
         logging.error("El usuario ingresó el nombre del Archivo de Clientes y/o del Archivo de Viajes INCORRECTO.")
 
 def TotalTripsSearch():
-    logging.info(f"Iniciando la Búsqueda del Total de Viajes por Número de Documento.")
+    logging.info(
+        "Iniciando la Búsqueda del Total de Viajes por Número de Documento."
+    )
+
     CLIENTS = input("Ingrese el nombre del Registro de Clientes: ") + ".csv"
     logging.info(f"El usuario ingresó {CLIENTS} como nombre del Archivo de Clientes.")
     TRAVELS = input("Ingrese el nombre del Registro de Viajes: ") + ".csv"
     logging.info(f"El usuario ingresó {TRAVELS} como nombre del Archivo de Viajes.")
 
-            # SI ARCHIVOS CLIENTS y TRAVELS EXISTEN, INICIA LA APERTURA Y 
-            # POSTERIOR LECTURA DE LOS MISMOS
     try:
         with open(CLIENTS, 'r', newline='') as fileOne, open(TRAVELS, 'r', newline='') as fileTwo:
             read_csv_one = csv.DictReader(fileOne, delimiter=',')
@@ -301,7 +291,7 @@ def TotalTripsSearch():
                     print(f" Nombre: {user[companyList[0]]} \n Dirección: {user[companyList[1]]} \n Documento: {user[companyList[2]]} \n Fecha de Alta: {user[companyList[3]]} \n Correo Electrónico: {user[companyList[4]]} \n Empresa: {user[companyList[5]]}")
                     print("=================================================================")
                     logging.info(f"{document} encontrado en {CLIENTS} con éxito.")
-                                
+
             # INICIO BUCLE BUSQUEDA DOCUMENTO EN ARCHIVO TRAVELS    
             for line in read_csv_two:
                 logging.info(f"Se inicia la búsqueda del Documento {document} en el archivo {TRAVELS}")

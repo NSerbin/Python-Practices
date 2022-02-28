@@ -7,10 +7,7 @@ import pyperclip as p
 
 def adressChecker():
     sys.argv
-    if len(sys.argv) > 1:
-        adress = ' '.join(sys.argv[1:])
-    else:
-        adress = p.paste()
+    adress = ' '.join(sys.argv[1:]) if len(sys.argv) > 1 else p.paste()
     w.open(f"https://www.google.com.ar/maps/place/{adress}")
 
 adressChecker()

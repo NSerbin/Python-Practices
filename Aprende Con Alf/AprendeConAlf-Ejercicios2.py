@@ -1,6 +1,7 @@
 """ 1) Escribir un programa que almacene las asignaturas de un curso (por ejemplo Matemáticas, Física, Química, Historia y Lengua) 
 en una lista y la muestre por pantalla."""
 
+
 materias = ["Matemáticas", "Física", "Química", "Historia", "Lengua"]
 print (materias)
 
@@ -28,9 +29,7 @@ for i in range(len(materias)):
 """ 4) Escribir un programa que pregunte al usuario los números ganadores de la lotería primitiva, los almacene en una lista y 
 los muestre por pantalla ordenados de menor a mayor."""
 
-loteria = []
-for i in range(8):
-    loteria.append(int(input("Ingrese los numeros ganadores: ")))
+loteria = [int(input("Ingrese los numeros ganadores: ")) for _ in range(8)]
 loteria.sort()
 print(f"Los números ganadores son {loteria}")
 
@@ -66,8 +65,5 @@ print (alfabeto)
 palabra = input("Ingrese una palabra: ")
 vocales = ["a", "e", "i", "o", "u"]
 for vocal in vocales:
-    contador = 0
-    for letra in palabra:
-        if letra == vocal:
-            contador += 1
+    contador = sum(letra == vocal for letra in palabra)
     print(f"La vocal {vocal} aparece {contador} veces.")
