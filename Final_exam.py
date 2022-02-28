@@ -9,10 +9,9 @@ def ingresoNotas():
     salir = ""
 
     while salir != "si":
-        totalidad = {}
         notas = []
         nota = 0
-        totalidad["nombre"] = input("Ingrese el Nombre Completo del alumno: ")
+        totalidad = {"nombre": input("Ingrese el Nombre Completo del alumno: ")}
         nota = int(input("Ingrese la Nota del Primer Parcial: "))
         if nota >= 0 and nota <= 10: 
             notas.append(nota)
@@ -111,9 +110,7 @@ def buscadorNombre(listado):
     nombreCompleto =  input("Ingrese el nombre del alumno: ")
     for alumno in listado:
         info = alumno["nombre"].split()
-        for nombres in info:
-            if nombreCompleto == nombres:
-                encontrado.append(alumno)
+        encontrado.extend(alumno for nombres in info if nombreCompleto == nombres)
     return encontrado
 print (buscadorNombre(promIndividual))
 

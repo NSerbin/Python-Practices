@@ -2,6 +2,7 @@
 pregunte al usuario por una divisa y muestre su símbolo o un mensaje de aviso si la divisa no está en el 
 diccionario. """
 
+
 divisas = {'Euro':'€', 'Dollar':'$', 'Yen':'¥'}
 divisa = input("Ingrese una divisa: ")
 print(divisas.get(divisa.title(), "La divisa no está."))
@@ -65,7 +66,7 @@ datos = {}
 continuar = "si"
 while continuar == "si":
     tipo = input("Qué dato desea agregar? ")
-    valor = input(tipo + " : ")
+    valor = input(f'{tipo} : ')
     datos[tipo] = valor
     print(datos)
     continuar = input("Desea continuar? ")
@@ -155,25 +156,25 @@ while opcion != 6:
         vip = input("Es un cliente preferente?")
         cliente = {'nombre': nombre, 'direccion': direccion, 'telefono': telefono, 'email': email, 'vip': vip =='S'}
         clientes[nif] = cliente
-    if opcion == 2:
+    elif opcion == 2:
         nif = input("Ingrese el NIF del cliente: ")
         if nif in clientes:
             del clientes[nif]
         else:
             print(f"No existe el cliente con ese {nif}.")
-    if opcion == 3:
+    elif opcion == 3:
         nif = input("Ingrese el NIF del cliente: ")
         if nif in clientes:
             print(f"El NIF es: {nif}")
             for key, value in clientes[nif].items():
-                print(key.title() + ":", value)
+                print(f'{key.title()}:', value)
         else:
             print("No existe ningun cliente con el nif solicitado.")
-    if opcion == 4:
+    elif opcion == 4:
         print("La lista de clientes es: ")
         for key, value in clientes.items():
             print(key, value[nombre])
-    if opcion == 5:
+    elif opcion == 5:
         print("La lista de clientes preferentes es: ")
         for key, value in clientes.items():
             if value["vip"]:

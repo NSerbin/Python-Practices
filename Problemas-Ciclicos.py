@@ -93,7 +93,7 @@ def contaminantes():
         if puntos_contaminantes <= menos_contaminante:
             menos_contaminante = puntos_contaminantes
 
-    promedio = promedio / 25
+    promedio /= 25
     print(
         f"El promedio de contaminacion es de {promedio}, el que mas contamino fue {mas_contaminante} y el que menos contamino fue {menos_contaminante}"
     )
@@ -117,9 +117,7 @@ veces = 10
 veces_mayor_16 = 0
 veces_menos_13 = 0
 prom = 0
-dia_actual = 1
-
-while dia_actual <= veces:
+for dia_actual in range(1, veces + 1):
     tiempo_prueba = int(
         input(f"Ingrese el tiempo tardado en la prueba para el dia {dia_actual}: ")
     )
@@ -130,8 +128,7 @@ while dia_actual <= veces:
 
     prom += tiempo_prueba
 
-    dia_actual += 1
-prom = prom / veces
+prom /= veces
 if prom <= 15 or veces_mayor_16 == 0 or veces_menos_13 >= 1:
     print(
         f"Es apto para los 5km, su promedio es de {prom}, tiene {veces_mayor_16} veces tiempo mayor a 16 mins y {veces_menos_13} veces tiempo menor a 13 mins."
@@ -199,15 +196,15 @@ azul = 0
 total = 0
 for i in range(1, autos +1):
     digito = int(input(f"Ingrese el ultimo dígito de la patente del vehiculo {i}:"))
-    if digito == 1 or digito == 2:
+    if digito in {1, 2}:
         amarillo += 1
-    elif digito == 3 or digito == 4:
+    elif digito in {3, 4}:
         rosa += 1
-    elif digito == 5 or digito == 6:
+    elif digito in {5, 6}:
         roja += 1
-    elif digito == 7 or digito == 8:
+    elif digito in {7, 8}:
         verde += 1
-    elif digito == 9 or digito == 0:
+    elif digito in {9, 0}:
         azul += 1
     total += autos
 print (f"Entraron a la ciudad {amarillo} Autos con Calcomanía Amarilla")
@@ -271,7 +268,7 @@ numeros dados."""
 
 conjuntoNumeros = int(input("Ingrese la cantidad de numeros: "))
 total = []
-for i in range(0, conjuntoNumeros):
+for i in range(conjuntoNumeros):
     numero = int(input(f"Ingrese el valor del numero {i}: "))
     conjuntoNumeros += 1
     total.append(numero)
